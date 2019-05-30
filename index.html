@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body onload="DoRead()">
+<form style="margin-top: 250px;margin-left: 600px;">
+    <fieldset style="width: 150px;height: 150px">
+        <table>
+            <tr>
+                <th colspan="4"><input type="text" style="width: 150px;height: 20px;margin-left: 5px" id="text"></th>
+            </tr>
+            <tr>
+                <td><input style="width: 25px;height: 25px;margin-left: 5px" onclick="KeyOne()" type="button" value="1"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeyTwo()"type="button" value="2"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeyThree()"type="button" value="3"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeyAddition()"type="button" value="+"></td>
+            </tr>
+            <tr>
+                <td><input style="width: 25px;height: 25px;margin-left: 5px" onclick="KeyFour()"type="button" value="4"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeyFive()"type="button" value="5"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeySix()"type="button" value="6"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeySubtraction()"type="button" value="-"></td>
+            </tr>
+            <tr>
+                <td><input style="width: 25px;height: 25px;margin-left: 5px" onclick="KeySeven()"type="button" value="7"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeyEght()"type="button" value="8"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeyNine()"type="button" value="9"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeyMultiplication()"type="button" value="*"></td>
+            </tr>
+            <tr>
+                <td><input style="width: 25px;height: 25px;margin-left: 5px" onclick="KeyC()"type="button" value="C"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick=" KeyZero()"type="button" value="0"></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="Key()"type="button" value="="></td>
+                <td><input style="width: 25px;height: 25px;margin-left: 10px" onclick="KeyDivision()"type="button" value="/"></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+<script>
+    var Zero=0;
+    var one=1;
+    var Two=2;
+    var Three=3;
+    var Four=4;
+    var Five=5;
+    var Six=6;
+    var Seven=7;
+    var Eght=8;
+    var Nine=9;
+    var res=0;
+    var Num='';
+    var X=0;
+    function Key()
+    {
+        Tinh(X,Num);
+        Num=res;
+        document.getElementById('text').value=res;
+        X=0;
+    }
+    function KeyZero() {
+        document.getElementById('text').value+=Zero;
+        Num+=Zero;
+    }
+    function KeyOne() {
+        document.getElementById('text').value+=one;
+        Num+=one;
+    }
+    function KeyTwo() {
+        document.getElementById('text').value+=Two;
+        Num+=Two;
+    }
+    function KeyThree() {
+        document.getElementById('text').value+=Three;
+        Num+=Three;
+    }
+    function KeyFour() {
+        Num+=Four;
+        document.getElementById('text').value+=Four;
+    }
+    function KeyFive() {
+        Num+=Five;
+        document.getElementById('text').value+=Five;
+    }
+    function KeySix() {
+        Num+=Six;
+        document.getElementById('text').value+=Six;
+    }
+    function KeySeven() {
+        Num+=Seven;
+        document.getElementById('text').value+=Seven;
+    }
+    function KeyEght() {
+        Num+=Eght;
+        document.getElementById('text').value+=Eght;
+    }
+    function KeyNine() {
+        Num+=Nine;
+        document.getElementById('text').value+=Nine;
+    }
+    function KeyAddition() {
+        Tinh(X,Num);
+        Num='';
+        document.getElementById('text').value+='+';
+        X=1;
+    }
+    function KeySubtraction() {Tinh(X,Num);
+        Num='';
+        document.getElementById('text').value+='-'; X=2;
+    }
+    function KeyMultiplication() {Tinh(X,Num);
+        Num='';
+        document.getElementById('text').value+='*'; X=3;
+    }    function KeyC() {
+        Num='';
+        res=0;
+        document.getElementById('text').value='';
+    }    function KeyDivision() {Tinh(X,Num);
+        Num='';
+        document.getElementById('text').value+='/'; X=4;
+    }
+    function Tinh(X,NumB) {
+        switch (X) {
+            case 1:
+                Addition(NumB);
+                break;
+            case 2:
+                Subtraction(NumB);
+                break;
+            case 3:
+                Multiplication(NumB);
+                break;
+            case 4:
+                Division(NumB);
+                break;
+            default:
+                res=parseInt(NumB);
+        }
+    }
+    function Addition(NumB) {
+        res+=parseInt(NumB);
+    }
+    function Subtraction(NumB) {
+        res-=parseInt(NumB);}
+    function Multiplication(NumB) {
+        res *=parseInt(NumB);
+    }
+    function Division(NumB) {
+        res/=parseInt(NumB);}
+        function keyevt(evt)
+        {
+            switch (evt.keyCode) {
+                case 187:
+                    Key();
+                    break;
+                case 48:
+                    KeyZero();
+                    break;
+                case 49:
+                    KeyOne();
+                    break;
+                case 50:
+                    KeyTwo();
+                    break;
+                case 51:
+                    KeyThree();
+                    break;
+                case 52:
+                    KeyFour();
+                    break;
+                case 53:
+                    KeyFive();
+                    break;
+                case 54:
+                    KeySix();
+                    break;
+                case 55:
+                    KeySeven();
+                    break;
+                case 56:
+                    KeyEght();
+                    break;
+                case 57:
+                    KeyNine();
+                    break;
+                case 187:
+                    KeyAddition();
+                    break;
+                case 189:
+                    KeySubtraction();
+                    break;
+                case 56:
+                    KeyMultiplication();
+                    break;
+                case 191:
+                    KeyDivision();
+                    break;
+
+            }
+        }
+        function DoRead() {
+            window.addEventListener('keydown',keyevt);
+        }
+</script>
+</body>
+</html>
